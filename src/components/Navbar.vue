@@ -1,33 +1,51 @@
-<script setup></script>
+<script setup>
+const navbarLinks = ref([
+  {
+    url: '/feed',
+    svg: 'feed',
+    title: 'FEED',
+  },
+  {
+    url: '/network',
+    svg: 'network',
+    title: 'NETWORK',
+  },
+  {
+    url: '/jobs',
+    svg: 'jobs',
+    title: 'JOBS',
+  },
+  {
+    url: '/chat',
+    svg: 'chat',
+    title: 'CHAT',
+  },
+  {
+    url: '/notice',
+    svg: 'notice',
+    title: 'NOTICES',
+  },
+]);
+</script>
 
 <template>
-  <div id="navbar">
+  <nav id="navbar">
     <div class="logo-zone">
-      <SvgIcon name="logo" style="width: 60px; height: 60px" />
+      <router-link to="/">
+        <SvgIcon name="logo" style="width: 60px; height: 60px" />
+      </router-link>
     </div>
     <div class="nav-items">
-      <ul>
-        <li>
-          <SvgIcon name="feed" style="width: 30px; height: 30px" />
-          <p>FEED</p>
-        </li>
-        <li>
-          <SvgIcon name="network" style="width: 30px; height: 30px" />
-          <p>NETWORK</p>
-        </li>
-        <li>
-          <SvgIcon name="jobs" style="width: 30px; height: 30px" />
-          <p>JOBS</p>
-        </li>
-        <li>
-          <SvgIcon name="chat" style="width: 30px; height: 30px" />
-          <p>CHAT</p>
-        </li>
-        <li>
-          <SvgIcon name="notice" style="width: 30px; height: 30px" />
-          <p>NOTICES</p>
-        </li>
-      </ul>
+      <div class="items">
+        <router-link
+          v-for="item in navbarLinks"
+          :key="item.title"
+          :to="item.url"
+        >
+          <SvgIcon :name="item.svg" />
+          <p>{{ item.title }}</p>
+        </router-link>
+      </div>
     </div>
     <div class="search">
       <SvgIcon
@@ -45,13 +63,16 @@
           <span>You</span>
         </div>
         <div class="count">
-          <p>367 views today</p>
-          <span>+32</span>
-          <SvgIcon
-            name="arrow-up-right"
-            style="width: 15px; height: 15px"
-            color="#02B033"
-          />
+          <p>
+            367 views today
+            <span
+              >+32
+              <SvgIcon
+                name="arrow-up-right"
+                style="width: 15px; height: 15px"
+                color="#02B033"
+            /></span>
+          </p>
         </div>
       </div>
     </div>
@@ -59,12 +80,12 @@
       <SvgIcon name="other" style="width: 30px; height: 30px" />
       <p>OTHER</p>
     </div>
-  </div>
+  </nav>
 </template>
 
 <style lang="scss" scoped>
 * {
-  font-family: "@/assets/GothamPro.ttf", "Noto Sans TC", sans-serif;
+  font-family: '@/assets/GothamPro.ttf', 'Noto Sans TC', sans-serif;
 }
 #navbar {
   display: flex;
@@ -88,20 +109,33 @@
   border-right: 4px solid;
   border-color: #f4f4f4;
 
-  ul {
+  .items {
     display: flex;
     list-style-type: none;
-    li {
+    height: 100%;
+    a {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       margin: 0 1.5vw;
+      position: relative;
+      text-decoration: none;
+      color: #181818;
+      svg {
+        width: 1.5vw;
+        height: 1.5vw;
+      }
+      p {
+        font-size: 0.8vw;
+      }
       &:after {
-        content: "";
+        content: '';
         width: 0%;
         height: 2px;
         background: #0275b1;
-        transform: translateY(10px);
+        position: absolute;
+        bottom: 0;
         transition: all 0.2s linear;
       }
       &:hover,
@@ -181,19 +215,22 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  cursor: pointer;
   &:after {
-    content: "";
+    content: '';
     width: 0%;
     height: 2px;
     background: #0275b1;
-    transform: translateY(10px);
     transition: all 0.2s linear;
+    position: absolute;
+    bottom: 0;
   }
   &:hover,
   &.active {
     color: #0275b1;
     &:after {
-      width: 50%;
+      width: 100%;
     }
   }
 }
