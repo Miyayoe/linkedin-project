@@ -14,10 +14,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-.mb {
-  margin-bottom: 1.5rem;
-}
+<style lang="scss">
 .home-container {
   display: flex;
   width: 100%;
@@ -25,5 +22,17 @@
   margin-top: 2rem;
   background-color: white;
   padding: 2rem;
+  .mb {
+    margin-bottom: 1.5rem;
+  }
+  .home-footer {
+    a {
+      font-size: 1rem;
+      font-family: var(--font);
+      color: #0275b1;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
 }
 </style>

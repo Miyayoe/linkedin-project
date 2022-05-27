@@ -5,10 +5,12 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Dashboard: typeof import('./components/Dashboard.vue')['default']
     HomeContent: typeof import('./components/HomeContent.vue')['default']
     Navbar: typeof import('./components/Navbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SideContent: typeof import('./components/SideContent.vue')['default']
     SvgIcon: typeof import('./components/SvgIcon.vue')['default']
   }
 }

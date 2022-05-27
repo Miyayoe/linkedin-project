@@ -121,6 +121,50 @@ const educationArr = ref([
     content: 'Additional English classes and UX profile courses​.',
   },
 ]);
+const visitorsArr = ref([
+  {
+    name: 'Darlene Black',
+    img: './src/assets/images/index/visitors1.png',
+    content: 'HR-manager, 10 000 connec...',
+  },
+  {
+    name: 'Theresa Steward',
+    img: './src/assets/images/index/visitors2.png',
+    content: 'iOS developer',
+  },
+  {
+    name: 'Brandon Wilson',
+    img: './src/assets/images/index/visitors3.png',
+    content: 'Senior UX designer',
+  },
+  {
+    name: 'Kyle Fisher',
+    img: './src/assets/images/index/visitors4.png',
+    content: 'Product designer at Com...',
+  },
+  {
+    name: 'Audrey Alexander',
+    img: './src/assets/images/index/visitors5.png',
+    content: 'Team lead at Google',
+  },
+]);
+const coursesArr = ref([
+  {
+    title: 'UX Foundations: Prototyping',
+    img: './src/assets/images/index/course1.png',
+    content: '27,959 viewers',
+  },
+  {
+    title: 'Designing with Adobe XD and pro',
+    img: './src/assets/images/index/course2.png',
+    content: '9,122 viewers',
+  },
+  {
+    title: 'UX Foundations: Styles and GUIs',
+    img: './src/assets/images/index/course3.png',
+    content: '13,858 viewers',
+  },
+]);
 </script>
 
 <template>
@@ -128,9 +172,9 @@ const educationArr = ref([
     <header>
       <Navbar />
     </header>
-    <div class="container">
-      <div class="content">
-        <div class="main-content">
+    <section>
+      <div class="container">
+        <div class="content">
           <div class="profile">
             <div class="banner">
               <img src="@/assets/images/index/banner.png" alt="" />
@@ -339,7 +383,7 @@ const educationArr = ref([
           </home-content>
           <home-content class="home-skill">
             <template #header>
-              <p>Skills & Endoresments</p>
+              <p>Skills & Endorsements</p>
             </template>
             <template #content>
               <div v-for="item in skillArr" :key="item.title" class="card">
@@ -398,9 +442,48 @@ const educationArr = ref([
             </template>
           </home-content>
         </div>
-        <div class="sidebar"></div>
+        <div class="sidebar">
+          <Dashboard />
+          <side-content class="visitors">
+            <template #header>
+              <p>VISITORS<a href="javascript:;">VIEW ALL</a></p>
+            </template>
+            <template #content>
+              <div v-for="item in visitorsArr" :key="item.name" class="content">
+                <div class="card">
+                  <div class="left">
+                    <img :src="item.img" alt="" />
+                  </div>
+                  <div class="right">
+                    <p>{{ item.name }}</p>
+                    <span>{{ item.content }}</span>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </side-content>
+          <side-content class="courses">
+            <template #header>
+              <p>YOU MAY LIKE THESE COURSES</p>
+            </template>
+            <template #content>
+              <div v-for="item in coursesArr" :key="item.title" class="card">
+                <div class="left">
+                  <img :src="item.img" alt="" />
+                </div>
+                <div class="right">
+                  <p>{{ item.title }}</p>
+                  <span>{{ item.content }}</span>
+                </div>
+              </div>
+            </template>
+            <template #footer>
+              <a href="javascript:;">SEE ALL RECOMMENDATIONS</a></template
+            >
+          </side-content>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 </template>
 
@@ -412,15 +495,15 @@ const educationArr = ref([
   font-family: var(--font);
   box-sizing: border-box;
 }
-.container {
+section {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
-  .content {
+  .container {
     margin-top: 70px;
     display: flex;
-    .main-content {
+    .content {
       width: 55vw;
       .profile {
         background-color: white;
@@ -609,15 +692,6 @@ const educationArr = ref([
             color: #181818;
           }
         }
-        .home-footer {
-          a {
-            font-size: 1rem;
-            font-family: var(--font);
-            color: #0275b1;
-            font-weight: bold;
-            text-decoration: none;
-          }
-        }
       }
       .home-projects {
         .home-header {
@@ -653,15 +727,6 @@ const educationArr = ref([
               color: #181818;
               font-weight: lighter;
             }
-          }
-        }
-        .home-footer {
-          a {
-            font-size: 1rem;
-            font-family: var(--font);
-            color: #0275b1;
-            font-weight: bold;
-            text-decoration: none;
           }
         }
       }
@@ -704,15 +769,6 @@ const educationArr = ref([
                 }
               }
             }
-          }
-        }
-        .home-footer {
-          a {
-            font-size: 1rem;
-            font-family: var(--font);
-            color: #0275b1;
-            font-weight: bold;
-            text-decoration: none;
           }
         }
       }
@@ -775,9 +831,6 @@ const educationArr = ref([
             }
           }
         }
-        .home-footer {
-          display: none;
-        }
       }
       .home-education {
         .home-header {
@@ -823,16 +876,65 @@ const educationArr = ref([
             }
           }
         }
-        .home-footer {
-          display: none;
-        }
       }
     }
 
     .sidebar {
       margin-left: 2.5vw;
-      background-color: white;
       width: 20vw;
+      .visitors {
+        p {
+          a {
+            border-bottom: none;
+          }
+        }
+        .side-content {
+          .card {
+            display: flex;
+            margin: 1rem 0;
+            .right {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-left: 0.5rem;
+              p {
+                font-weight: bold;
+                font-family: var(--font);
+                margin-bottom: 0.25rem;
+              }
+              span {
+                font-family: var(--font);
+                font-size: 0.5rem;
+                color: #181818;
+              }
+            }
+          }
+        }
+      }
+      .courses {
+        .side-content {
+          display: flex;
+          flex-direction: column;
+          .card {
+            display: flex;
+            margin: 0.5rem 0;
+            .right {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-left: 1rem;
+              p {
+                font-family: var(--font);
+                font-weight: bold;
+              }
+              span {
+                font-family: var(--font);
+                font-size: 0.5rem;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
