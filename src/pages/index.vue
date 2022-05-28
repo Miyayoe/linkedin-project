@@ -1,170 +1,234 @@
 <script setup>
-const projectsArr = ref([
-  {
-    img: './src/assets/images/index/project1.png',
-    title: 'Zara redesign concept',
-    description: 'UX/UI design, 15.07.2019',
-  },
-  {
-    img: './src/assets/images/index/project2.png',
-    title: ' SCTHONevent brand identity',
-    description: 'Graohic design, 03.31.2019',
-  },
-  {
-    img: './src/assets/images/index/project3.png',
-    title: ' Drozed. Brand identity. 2016',
-    description: 'Graphic design, 03.04.2016',
-  },
-]);
-const skillArr = ref([
-  {
-    title: 'User experience (UX)',
-    number: 6,
-    users: [
+import axios from 'axios';
+const projectsArr = ref([]);
+const skillArr = ref([]);
+const experienceArr = ref([]);
+const educationArr = ref([]);
+const visitorsArr = ref([]);
+const coursesArr = ref([]);
+
+//projectsArr
+axios
+  .get(
+    'https://api.unsplash.com/search/photos?page=1&query=taiwan&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+  )
+  .then((response) => {
+    const imgArr = response.data.results;
+    projectsArr.value = [
       {
-        img: './src/assets/images/index/user_1.png',
+        img: imgArr[0].urls.regular,
+        title: 'Zara redesign concept',
+        description: 'UX/UI design, 15.07.2019',
       },
       {
-        img: './src/assets/images/index/user_2.png',
+        img: imgArr[1].urls.regular,
+        title: ' SCTHONevent brand identity',
+        description: 'Graohic design, 03.31.2019',
       },
       {
-        img: './src/assets/images/index/user_3.png',
+        img: imgArr[3].urls.regular,
+        title: ' Drozed. Brand identity. 2016',
+        description: 'Graphic design, 03.04.2016',
+      },
+    ];
+  });
+//skillArr
+axios
+  .get(
+    'https://api.unsplash.com/search/photos?query=users&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+  )
+  .then((response) => {
+    const imgArr = response.data.results;
+    skillArr.value = [
+      {
+        title: 'User experience (UX)',
+        number: 6,
+        users: [
+          {
+            img: imgArr[0].urls.regular,
+          },
+          {
+            img: imgArr[1].urls.regular,
+          },
+          {
+            img: imgArr[2].urls.regular,
+          },
+          {
+            img: imgArr[3].urls.regular,
+          },
+          {
+            img: imgArr[4].urls.regular,
+          },
+          {
+            img: imgArr[4].urls.regular,
+          },
+        ],
       },
       {
-        img: './src/assets/images/index/user_4.png',
+        title: 'User interface (UI)',
+        number: 7,
+        users: [
+          {
+            img: imgArr[5].urls.regular,
+          },
+          {
+            img: imgArr[6].urls.regular,
+          },
+          {
+            img: imgArr[7].urls.regular,
+          },
+          {
+            img: imgArr[8].urls.regular,
+          },
+          {
+            img: imgArr[9].urls.regular,
+          },
+          {
+            img: imgArr[9].urls.regular,
+          },
+          {
+            img: imgArr[9].urls.regular,
+          },
+        ],
       },
       {
-        img: './src/assets/images/index/user_5.png',
+        title: 'Brand identity',
+        number: 5,
+        users: [
+          {
+            img: imgArr[0].urls.regular,
+          },
+          {
+            img: imgArr[1].urls.regular,
+          },
+          {
+            img: imgArr[2].urls.regular,
+          },
+          {
+            img: imgArr[3].urls.regular,
+          },
+          {
+            img: imgArr[4].urls.regular,
+          },
+        ],
       },
-    ],
-  },
-  {
-    title: 'User interface (UI)',
-    number: 7,
-    users: [
+    ];
+  });
+//experienceArr
+axios
+  .get(
+    'https://api.unsplash.com/search/photos?query=company-logo&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+  )
+  .then((response) => {
+    const imgArr = response.data.results;
+    experienceArr.value = [
       {
-        img: './src/assets/images/index/user_1.png',
+        title: 'Freelance UX/UI designer',
+        img: imgArr[0].urls.regular,
+        company: {
+          name: 'Self Employed',
+          spot: 'Around the world',
+        },
+        time: {
+          since: 'Jun 2016 — Present',
+          howLong: '3 yrs 3 mos',
+        },
+        content:
+          'Work with clients and web studios as freelancer. Work in next areas: eCommerce web projects; creative landing pages; iOs and Android apps; corporate web sites and corporate identity sometimes.',
       },
       {
-        img: './src/assets/images/index/user_2.png',
+        title: 'UX/UI designer',
+        img: imgArr[2].urls.regular,
+        company: {
+          name: 'Upwork',
+          spot: 'International',
+        },
+        time: {
+          since: 'Jun 2019 — Present',
+          howLong: '3 mos',
+        },
+        content:
+          'New experience with Upwork system. Work in next areas: UX/UI design, graphic design, interaction design, UX research.',
+      },
+    ];
+  });
+//educationArr
+axios
+  .get(
+    'https://api.unsplash.com/search/photos?query=college-logo&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+  )
+  .then((response) => {
+    const imgArr = response.data.results;
+    educationArr.value = [
+      {
+        title: 'Moscow State Linguistic University',
+        img: imgArr[0].urls.regular,
+        degree:
+          "Bachelor's degree Field Of StudyComputer and Information Systems Security/Information Assurance",
+        time: '2013 — 2017',
+        content: 'Additional English classes and UX profile courses​.',
+      },
+    ];
+  });
+
+axios
+  .get(
+    'https://api.unsplash.com/search/photos?page=2&query=users&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+  )
+  .then((response) => {
+    const imgArr = response.data.results;
+    visitorsArr.value = [
+      {
+        name: 'Darlene Black',
+        img: imgArr[0].urls.regular,
+        content: 'HR-manager, 10 000 connec...',
       },
       {
-        img: './src/assets/images/index/user_3.png',
+        name: 'Theresa Steward',
+        img: imgArr[1].urls.regular,
+        content: 'iOS developer',
       },
       {
-        img: './src/assets/images/index/user_4.png',
+        name: 'Brandon Wilson',
+        img: imgArr[2].urls.regular,
+        content: 'Senior UX designer',
       },
       {
-        img: './src/assets/images/index/user_5.png',
-      },
-    ],
-  },
-  {
-    title: 'Brand identity',
-    number: 5,
-    users: [
-      {
-        img: './src/assets/images/index/user_1.png',
+        name: 'Kyle Fisher',
+        img: imgArr[3].urls.regular,
+        content: 'Product designer at Com...',
       },
       {
-        img: './src/assets/images/index/user_2.png',
+        name: 'Audrey Alexander',
+        img: imgArr[4].urls.regular,
+        content: 'Team lead at Google',
+      },
+    ];
+  });
+axios
+  .get(
+    'https://api.unsplash.com/search/photos?page=2&query=courses&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+  )
+  .then((response) => {
+    const imgArr = response.data.results;
+    coursesArr.value = [
+      {
+        title: 'UX Foundations: Prototyping',
+        img: imgArr[0].urls.regular,
+        content: '27,959 viewers',
       },
       {
-        img: './src/assets/images/index/user_3.png',
+        title: 'Designing with Adobe XD and pro',
+        img: imgArr[1].urls.regular,
+        content: '9,122 viewers',
       },
       {
-        img: './src/assets/images/index/user_4.png',
+        title: 'UX Foundations: Styles and GUIs',
+        img: imgArr[2].urls.regular,
+        content: '13,858 viewers',
       },
-      {
-        img: './src/assets/images/index/user_5.png',
-      },
-    ],
-  },
-]);
-const experienceArr = ref([
-  {
-    title: 'Freelance UX/UI designer',
-    img: './src/assets/images/index/experience1.png',
-    company: {
-      name: 'Self Employed',
-      spot: 'Around the world',
-    },
-    time: {
-      since: 'Jun 2016 — Present',
-      howLong: '3 yrs 3 mos',
-    },
-    content:
-      'Work with clients and web studios as freelancer. Work in next areas: eCommerce web projects; creative landing pages; iOs and Android apps; corporate web sites and corporate identity sometimes.',
-  },
-  {
-    title: 'UX/UI designer',
-    img: './src/assets/images/index/experience2.png',
-    company: {
-      name: 'Upwork',
-      spot: 'International',
-    },
-    time: {
-      since: 'Jun 2019 — Present',
-      howLong: '3 mos',
-    },
-    content:
-      'New experience with Upwork system. Work in next areas: UX/UI design, graphic design, interaction design, UX research.',
-  },
-]);
-const educationArr = ref([
-  {
-    title: 'Moscow State Linguistic University',
-    img: './src/assets/images/index/edutication.png',
-    degree:
-      "Bachelor's degree Field Of StudyComputer and Information Systems Security/Information Assurance",
-    time: '2013 — 2017',
-    content: 'Additional English classes and UX profile courses​.',
-  },
-]);
-const visitorsArr = ref([
-  {
-    name: 'Darlene Black',
-    img: './src/assets/images/index/visitors1.png',
-    content: 'HR-manager, 10 000 connec...',
-  },
-  {
-    name: 'Theresa Steward',
-    img: './src/assets/images/index/visitors2.png',
-    content: 'iOS developer',
-  },
-  {
-    name: 'Brandon Wilson',
-    img: './src/assets/images/index/visitors3.png',
-    content: 'Senior UX designer',
-  },
-  {
-    name: 'Kyle Fisher',
-    img: './src/assets/images/index/visitors4.png',
-    content: 'Product designer at Com...',
-  },
-  {
-    name: 'Audrey Alexander',
-    img: './src/assets/images/index/visitors5.png',
-    content: 'Team lead at Google',
-  },
-]);
-const coursesArr = ref([
-  {
-    title: 'UX Foundations: Prototyping',
-    img: './src/assets/images/index/course1.png',
-    content: '27,959 viewers',
-  },
-  {
-    title: 'Designing with Adobe XD and pro',
-    img: './src/assets/images/index/course2.png',
-    content: '9,122 viewers',
-  },
-  {
-    title: 'UX Foundations: Styles and GUIs',
-    img: './src/assets/images/index/course3.png',
-    content: '13,858 viewers',
-  },
-]);
+    ];
+  });
 </script>
 
 <template>
@@ -177,7 +241,7 @@ const coursesArr = ref([
         <div class="content">
           <div class="profile">
             <div class="banner">
-              <img src="@/assets/images/index/banner.png" alt="" />
+              <img src="@/assets/images/banner.jpg" alt="" />
               <div class="buttons">
                 <button class="share">
                   <svg
@@ -372,7 +436,7 @@ const coursesArr = ref([
             </template>
             <template #content>
               <div v-for="item in projectsArr" :key="item.title" class="card">
-                <img :src="item.img" :alt="item.title" />
+                <img :src="item.img" :alt="item.title" height="200" />
                 <p>{{ item.title }}</p>
                 <span>{{ item.description }}</span>
               </div>
@@ -391,8 +455,11 @@ const coursesArr = ref([
                   {{ item.title }} <span>{{ item.number }}</span>
                 </p>
                 <div class="users">
-                  <div v-for="el in item.users" class="user">
+                  <div v-for="el in item.users.slice(0, 5)" class="user">
                     <img :src="el.img" />
+                  </div>
+                  <div class="over-user" v-if="item.users.length - 5 > 0">
+                    <p>+{{ item.users.length - 5 }}</p>
                   </div>
                 </div>
               </div>
@@ -478,12 +545,15 @@ const coursesArr = ref([
               </div>
             </template>
             <template #footer>
-              <a href="javascript:;">SEE ALL RECOMMENDATIONS</a></template
-            >
+              <a href="javascript:;">SEE ALL RECOMMENDATIONS</a>
+            </template>
           </side-content>
         </div>
       </div>
     </section>
+    <footer>
+      <Footer />
+    </footer>
   </main>
 </template>
 
@@ -715,6 +785,7 @@ section {
             width: 16vw;
             img {
               width: 100%;
+              object-fit: cover;
             }
             p {
               font-family: var(--font);
@@ -761,11 +832,28 @@ section {
             }
             .users {
               display: flex;
-              @for $i from 2 to 6 {
-                :nth-child(#{$i}) {
-                  img {
-                    margin-left: -30% * $i;
-                  }
+              align-items: center;
+              img {
+                border-radius: 50%;
+                width: 1.2vw;
+                height: 1.2vw;
+                object-fit: cover;
+              }
+              :not(first-child) {
+                margin-left: -0.1vw;
+              }
+              .over-user {
+                background-color: #0275b1;
+                width: 1.2vw;
+                height: 1.2vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                p {
+                  font-family: var(--font);
+                  color: white;
+                  font-size: 0.5rem;
                 }
               }
             }
@@ -793,6 +881,12 @@ section {
             padding: 1rem 0;
             .left {
               padding: 0 1rem;
+              img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+              }
             }
             .right {
               p.title {
@@ -850,6 +944,12 @@ section {
             display: flex;
             .left {
               padding: 0 1rem;
+              img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+              }
             }
             .right {
               p.title {
@@ -892,6 +992,14 @@ section {
           .card {
             display: flex;
             margin: 1rem 0;
+            .left {
+              img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+            }
             .right {
               display: flex;
               flex-direction: column;
@@ -918,6 +1026,13 @@ section {
           .card {
             display: flex;
             margin: 0.5rem 0;
+            .left {
+              img {
+                width: 150px;
+                height: 75px;
+                object-fit: cover;
+              }
+            }
             .right {
               display: flex;
               flex-direction: column;

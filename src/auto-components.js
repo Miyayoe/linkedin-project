@@ -6,6 +6,7 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Dashboard: typeof import('./components/Dashboard.vue')['default']
+    Footer: typeof import('./components/Footer.vue')['default']
     HomeContent: typeof import('./components/HomeContent.vue')['default']
     Navbar: typeof import('./components/Navbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

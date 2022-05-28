@@ -56,7 +56,7 @@ const navbarLinks = ref([
       <input type="text" placeholder="Search" />
     </div>
     <div class="profile">
-      <img src="../assets/images/picture.jpg" alt="" />
+      <img src="@/assets/images/picture.jpg" alt="" />
       <div class="info">
         <div class="user">
           <p>Miya</p>
