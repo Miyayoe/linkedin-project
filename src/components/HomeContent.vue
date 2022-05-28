@@ -28,7 +28,6 @@
   .home-footer {
     a {
       font-size: 1rem;
-      font-family: var(--font);
       color: #0275b1;
       font-weight: bold;
       text-decoration: none;

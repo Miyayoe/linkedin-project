@@ -23,9 +23,6 @@
 </template>
 
 <style lang="scss" scoped>
-:root {
-  --font: '@/assets/GothamPro.ttf', 'Noto Sans TC', sans-serif;
-}
 .side {
   .info {
     margin: 1rem 0;

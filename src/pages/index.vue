@@ -516,7 +516,7 @@ axios
               <p>VISITORS<a href="javascript:;">VIEW ALL</a></p>
             </template>
             <template #content>
-              <div v-for="item in visitorsArr" :key="item.name" class="content">
+              <div v-for="item in visitorsArr" :key="item.name" class="cards">
                 <div class="card">
                   <div class="left">
                     <img :src="item.img" alt="" />
@@ -551,20 +551,15 @@ axios
         </div>
       </div>
     </section>
-    <footer>
-      <Footer />
-    </footer>
+    <Footer />
   </main>
 </template>
 
-<style lang="scss" style>
-:root {
-  --font: '@/assets/GothamPro.ttf', 'Noto Sans TC', sans-serif;
-}
+<style lang="scss">
 * {
-  font-family: var(--font);
   box-sizing: border-box;
 }
+
 section {
   width: 100%;
   height: auto;
@@ -611,10 +606,6 @@ section {
                 float: right;
                 margin-right: 1rem;
                 padding: 10px;
-
-                p {
-                  font-family: var(--font);
-                }
               }
               &.more {
                 float: right;
@@ -669,7 +660,6 @@ section {
                 justify-self: flex-start;
                 display: flex;
                 align-items: center;
-                font-family: var(--font);
                 font-size: 1.5rem;
                 font-weight: bold;
                 svg {
@@ -679,7 +669,6 @@ section {
               .user-location {
                 display: flex;
                 margin-left: auto;
-                font-family: var(--font);
                 color: #181818;
                 svg {
                   margin-right: 0.5rem;
@@ -690,7 +679,6 @@ section {
               margin-top: 1rem;
               font-size: 1.25rem;
               p {
-                font-family: var(--font);
                 color: #181818;
               }
             }
@@ -703,7 +691,6 @@ section {
                 margin-right: 1rem;
                 border-radius: 5px;
                 font-size: 1rem;
-                font-family: var(--font);
                 font-weight: bold;
                 color: #0275b1;
                 &.active {
@@ -733,7 +720,6 @@ section {
               padding: 1.5rem 5rem;
               background-color: white;
               font-size: 1rem;
-              font-family: var(--font);
               font-weight: bold;
               border-radius: 5px;
               transition: 0.2s linear;
@@ -751,14 +737,12 @@ section {
         .home-header {
           p {
             font-size: 2rem;
-            font-family: var(--font);
             font-weight: bold;
           }
         }
         .home-content {
           p {
             font-size: 1.5rem;
-            font-family: var(--font);
             color: #181818;
           }
         }
@@ -767,11 +751,9 @@ section {
         .home-header {
           p {
             font-size: 2rem;
-            font-family: var(--font);
             font-weight: bold;
           }
           span {
-            font-family: var(--font);
             color: #747474;
             margin-left: 1rem;
             font-size: 1.75rem;
@@ -788,12 +770,10 @@ section {
               object-fit: cover;
             }
             p {
-              font-family: var(--font);
               font-weight: bold;
               margin: 0.5rem 0rem;
             }
             span {
-              font-family: var(--font);
               font-size: 0.5rem;
               color: #181818;
               font-weight: lighter;
@@ -805,7 +785,6 @@ section {
         .home-header {
           p {
             font-size: 2rem;
-            font-family: var(--font);
             font-weight: bold;
           }
         }
@@ -819,7 +798,6 @@ section {
             padding: 1rem;
             border-radius: 5px;
             p {
-              font-family: var(--font);
               font-weight: bold;
               font-size: 1.25rem;
               margin: 0.5rem 0;
@@ -827,7 +805,6 @@ section {
                 float: right;
                 color: #0275b1;
                 font-weight: bold;
-                font-family: var(--font);
               }
             }
             .users {
@@ -851,7 +828,6 @@ section {
                 justify-content: center;
                 border-radius: 50%;
                 p {
-                  font-family: var(--font);
                   color: white;
                   font-size: 0.5rem;
                 }
@@ -864,7 +840,7 @@ section {
         .home-header {
           p {
             font-size: 2rem;
-            font-family: var(--font);
+
             font-weight: bold;
           }
         }
@@ -890,23 +866,22 @@ section {
             }
             .right {
               p.title {
-                font-family: var(--font);
                 font-weight: bold;
                 margin-bottom: 1rem;
               }
               p.company {
                 font-size: 0.5rem;
-                font-family: var(--font);
+
                 margin-bottom: 0.5rem;
                 span {
                   margin-left: 0.5rem;
-                  font-family: var(--font);
+
                   color: #181818;
                 }
               }
               p.time {
                 font-size: 0.5rem;
-                font-family: var(--font);
+
                 margin-bottom: 0.5rem;
                 color: #181818;
                 margin-bottom: 1rem;
@@ -914,12 +889,11 @@ section {
                   margin-left: 0.5rem;
                   font-size: 0.75rem;
                   font-weight: bold;
-                  font-family: var(--font);
+
                   color: #0275b1;
                 }
               }
               p.experience-content {
-                font-family: var(--font);
                 font-size: 0.5rem;
               }
             }
@@ -930,7 +904,7 @@ section {
         .home-header {
           p {
             font-size: 2rem;
-            font-family: var(--font);
+
             font-weight: bold;
           }
         }
@@ -953,24 +927,22 @@ section {
             }
             .right {
               p.title {
-                font-family: var(--font);
                 font-weight: bold;
                 margin-bottom: 1rem;
               }
               p.degree {
                 font-size: 0.5rem;
-                font-family: var(--font);
+
                 margin-bottom: 0.5rem;
               }
               p.time {
                 font-size: 0.5rem;
-                font-family: var(--font);
+
                 margin-bottom: 0.5rem;
                 color: #181818;
                 margin-bottom: 1rem;
               }
               p.experience-content {
-                font-family: var(--font);
                 font-size: 0.5rem;
               }
             }
@@ -991,6 +963,7 @@ section {
         .side-content {
           .card {
             display: flex;
+            width: 100%;
             margin: 1rem 0;
             .left {
               img {
@@ -1007,11 +980,10 @@ section {
               margin-left: 0.5rem;
               p {
                 font-weight: bold;
-                font-family: var(--font);
+
                 margin-bottom: 0.25rem;
               }
               span {
-                font-family: var(--font);
                 font-size: 0.5rem;
                 color: #181818;
               }
@@ -1039,11 +1011,9 @@ section {
               justify-content: center;
               margin-left: 1rem;
               p {
-                font-family: var(--font);
                 font-weight: bold;
               }
               span {
-                font-family: var(--font);
                 font-size: 0.5rem;
               }
             }

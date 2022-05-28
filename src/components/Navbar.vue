@@ -84,9 +84,6 @@ const navbarLinks = ref([
 </template>
 
 <style lang="scss" scoped>
-* {
-  font-family: '@/assets/GothamPro.ttf', 'Noto Sans TC', sans-serif;
-}
 #navbar {
   display: flex;
   width: 100%;

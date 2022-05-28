@@ -15,19 +15,14 @@
 </template>
 
 <style lang="scss">
-:root {
-  --font: '@/assets/GothamPro.ttf', 'Noto Sans TC', sans-serif;
-}
 .side {
   background-color: white;
   padding: 2rem;
   margin-bottom: 2rem;
   .side-header {
     p {
-      font-family: var(--font);
       font-weight: bold;
       a {
-        font-family: var(--font);
         float: right;
         color: #0275b1;
         font-weight: bold;
@@ -41,7 +36,6 @@
   .side-footer {
     margin-top: 2rem;
     a {
-      font-family: var(--font);
       color: #0275b1;
       font-weight: bold;
       text-decoration: none;
