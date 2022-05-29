@@ -4,8 +4,12 @@
   }
 * {
 font-family: var(--font);
+box-sizing: border-box;
 }
 p,
 span {
   font-family: var(--font);
+}
+hr {
+  border: 1px solid #f4f4f4;
 }

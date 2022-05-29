@@ -341,10 +341,8 @@ axios
             </div>
             <div class="info">
               <div class="left">
-                <div class="user-image-area">
-                  <div class="user-image-cut">
-                    <img src="@/assets/images/picture.jpg" alt="" />
-                  </div>
+                <div class="user-img-bg">
+                  <img src="@/assets/images/picture.jpg" alt="" />
                 </div>
               </div>
               <div class="right">
@@ -623,30 +621,21 @@ section {
           display: flex;
           flex-wrap: wrap;
           .left {
-            position: relative;
-            width: 250px;
+            width: 300px;
             height: 100%;
-            margin-left: 1.5rem;
-            .user-image-area {
-              position: absolute;
-              width: 250px;
-              height: 250px;
+            display: flex;
+            justify-content: center;
+            .user-img-bg {
+              width: 90%;
+              height: 90%;
+              margin-top: -10%;
+              z-index: 1;
               background-color: white;
               border-radius: 50%;
-              top: -25%;
-              left: 50%;
-              transform: translateX(-50%);
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              .user-image-cut {
-                width: 90%;
-                height: 90%;
+              img {
+                width: 100%;
                 border-radius: 50%;
-                overflow: hidden;
-                img {
-                  width: 100%;
-                }
+                border: 0.5vw solid white;
               }
             }
           }

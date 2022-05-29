@@ -5,6 +5,7 @@
     <div class="side-header">
       <slot name="header"></slot>
     </div>
+    <hr />
     <div class="side-content">
       <slot name="content"></slot>
     </div>
@@ -31,7 +32,6 @@
       }
     }
     padding-bottom: 1rem;
-    border-bottom: 1px solid #f4f4f4;
   }
   .side-footer {
     margin-top: 2rem;
