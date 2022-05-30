@@ -241,7 +241,7 @@ axios
         <div class="content">
           <div class="profile">
             <div class="banner">
-              <img src="@/assets/images/banner.jpg" alt="" />
+              <img src="/images/banner.jpg" alt="" />
               <div class="buttons">
                 <button class="share">
                   <svg
@@ -342,7 +342,7 @@ axios
             <div class="info">
               <div class="left">
                 <div class="user-img-bg">
-                  <img src="@/assets/images/picture.jpg" alt="" />
+                  <img src="/images/picture.jpg" alt="" />
                 </div>
               </div>
               <div class="right">
@@ -612,8 +612,10 @@ section {
           }
           img {
             position: absolute;
-            top: -20%;
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 30%;
           }
         }
         .info {
@@ -799,6 +801,10 @@ section {
             .users {
               display: flex;
               align-items: center;
+              .user {
+                display: flex;
+                align-items: center;
+              }
               img {
                 border-radius: 50%;
                 width: 1.2vw;

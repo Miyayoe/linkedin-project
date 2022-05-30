@@ -1,4 +1,127 @@
-<script setup></script>
+<script setup>
+import axios from 'axios';
+const posts = ref([]);
+
+async function GetPosts() {
+  let userImg = await axios.get(
+    'https://api.unsplash.com/search/photos?query=users&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+  );
+  let postImg = await axios.get(
+    'https://api.unsplash.com/search/photos?page=2&query=taiwan&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+  );
+
+  posts.value = [
+    {
+      reacts:
+        '<span>Ted Bell</span>,<span>Annette Nguyen</span> and <span>Cody Hawkins</span> liked this.',
+      user: {
+        img: userImg.data.results[0].urls.regular,
+        name: 'Theresa Steward',
+        job: 'iOS developer',
+      },
+      text: 'What did the Dursleys care if Harry lost his place on the House Quidditch team because he hadn’t practiced all summer? What was it to the Dursleys if Harry went back to school without any of his homework done? The Dursleys were what wizards called Muggles (not a drop of magical blood in their veins).',
+      overflow: true,
+      img: '',
+      file: [
+        // {
+        //   fileName: 'iOS 11 guidelines for UX/UI designers',
+        //   fileDetail: 'PDF file, 324 kb',
+        // },
+      ],
+      like: {
+        count: 42,
+        liked: false,
+      },
+      comment: {
+        count: 9,
+        commented: false,
+      },
+    },
+    {
+      reacts: '<span>Audrey</span> <span>Alexander</span> comment this',
+      user: {
+        img: userImg.data.results[1].urls.regular,
+        name: 'Kyle Fisher',
+        job: 'Product designer at Commander Corp.',
+      },
+      text: 'How’s your day going, guys?',
+      overflow: false,
+      img: postImg.data.results[1].urls.regular,
+      file: [
+        // {
+        //   fileName: 'iOS 11 guidelines for UX/UI designers',
+        //   fileDetail: 'PDF file, 324 kb',
+        // },
+      ],
+      like: {
+        count: 12,
+        liked: true,
+      },
+      comment: {
+        count: 3,
+        commented: false,
+      },
+    },
+    {
+      reacts: 'High rated post from your feed',
+      user: {
+        img: userImg.data.results[2].urls.regular,
+        name: 'Brandon Wilson',
+        job: 'Senior UX designer',
+      },
+      text: 'There is some new guidelines for iOS',
+      overflow: false,
+      img: '',
+      file: [
+        {
+          fileName: 'iOS 15 guidelines for UX/UI designers',
+          fileDetail: 'PDF file, 324 kb',
+        },
+        {
+          fileName: 'iOS 15 guidelines for developers',
+          fileDetail: 'PDF file, 245 kb',
+        },
+      ],
+
+      like: {
+        count: 89,
+        liked: true,
+      },
+      comment: {
+        count: 7,
+        commented: true,
+      },
+    },
+    {
+      reacts: 'First post from <span>Audrey Alexander</span>',
+      user: {
+        img: userImg.data.results[3].urls.regular,
+        name: 'Audrey Alexander',
+        job: 'Team lead at Google',
+      },
+      text: 'The bun runs along the road and meets a wolf. «Little bun, little bun, I want to eat you!» says the wolf. «I ran away from Grandfather, I ran away from Grandmother, I ran away from the hare. And I can run away from you, grey wolf!» says the bun and runs away.',
+      overflow: false,
+      img: '',
+      file: [],
+      // {
+      //   fileName: 'iOS 11 guidelines for UX/UI designers',
+      //   fileDetail: 'PDF file, 324 kb',
+      // },
+      like: {
+        count: 10,
+        liked: false,
+      },
+      comment: {
+        count: 0,
+        commented: false,
+      },
+    },
+  ];
+}
+onMounted(() => {
+  GetPosts();
+});
+</script>
 
 <template>
   <main>
@@ -168,16 +291,35 @@
               </svg>
             </div>
           </div>
+          <div class="sort">
+            <hr />
+            <p>SORT BY :</p>
+            <select name="" id="">
+              <option value="TRENDING">TRENDING</option>
+            </select>
+            <hr />
+          </div>
+          <PostContent
+            v-for="item in posts"
+            :reacts="item.reacts"
+            :user="item.user"
+            :text="item.text"
+            :overflow="item.overflow"
+            :img="item.img"
+            :file="item.file"
+            :like="item.like"
+            :comment="item.comment"
+          />
         </div>
         <div class="sidebar">
           <div class="profile">
             <div class="banner">
-              <img src="@/assets/images/banner.jpg" alt="" />
+              <img src="/images/banner.jpg" alt="" />
             </div>
             <div class="info">
               <div class="picture">
                 <div class="img-bg">
-                  <img src="@/assets/images/picture.jpg" alt="" />
+                  <img src="/images/picture.jpg" alt="" />
                 </div>
               </div>
               <div class="info-container">
@@ -222,6 +364,7 @@
               </div>
             </div>
           </div>
+          <side-content> </side-content>
         </div>
       </div>
     </section>
@@ -272,6 +415,26 @@ section {
           }
         }
       }
+      .sort {
+        margin: 2rem 0;
+        display: flex;
+        align-items: center;
+        hr {
+          flex: 1;
+        }
+        select {
+          border: none;
+          background-color: transparent;
+          font-size: 1rem;
+          color: #0275b1;
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+        p {
+          margin-left: 0.5rem;
+          font-weight: bold;
+        }
+      }
     }
     .sidebar {
       margin-left: 2.5vw;
@@ -283,10 +446,11 @@ section {
           height: 50%;
           overflow: hidden;
           position: relative;
-          height: 50%;
           img {
             width: 100%;
+            height: 100%;
             object-fit: cover;
+            object-position: 50% 50%;
           }
         }
         .info {

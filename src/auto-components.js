@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
     Footer: typeof import('./components/Footer.vue')['default']
     HomeContent: typeof import('./components/HomeContent.vue')['default']
     Navbar: typeof import('./components/Navbar.vue')['default']
+    PostContent: typeof import('./components/PostContent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SideContent: typeof import('./components/SideContent.vue')['default']
