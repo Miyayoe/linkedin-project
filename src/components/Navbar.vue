@@ -26,6 +26,7 @@ const navbarLinks = ref([
     title: 'NOTICES',
   },
 ]);
+const searchFocus = ref(false);
 </script>
 
 <template>
@@ -53,7 +54,55 @@ const navbarLinks = ref([
         style="width: 30px; height: 30px"
         color="#0275B1"
       />
-      <input type="text" placeholder="Search" />
+      <input type="text" placeholder="Search" @focus="searchFocus = true" />
+      <div v-if="searchFocus" class="search-focus">
+        <div class="focus-bar">
+          <div class="bar-header">
+            <input v-focus type="text" placeholder="" />
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="40"
+                height="40"
+                rx="4"
+                fill="url(#paint0_linear_1_1217)"
+              />
+              <path
+                d="M19.1667 25.8335C22.8486 25.8335 25.8333 22.8487 25.8333 19.1668C25.8333 15.4849 22.8486 12.5001 19.1667 12.5001C15.4848 12.5001 12.5 15.4849 12.5 19.1668C12.5 22.8487 15.4848 25.8335 19.1667 25.8335Z"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M27.5 27.5002L23.875 23.8752"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_1_1217"
+                  x1="20"
+                  y1="0"
+                  x2="20"
+                  y2="40"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#0077B5" />
+                  <stop offset="1" stop-color="#0E6795" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <hr />
+        </div>
+        <div class="focus-filter" @click="searchFocus = false"></div>
+      </div>
     </div>
     <div class="profile">
       <img src="/images/picture.jpg" alt="" />
@@ -136,7 +185,7 @@ const navbarLinks = ref([
         transition: all 0.2s linear;
       }
       &:hover,
-      &.active {
+      &.router-link-active {
         color: #0275b1;
         &:after {
           width: 100%;
@@ -146,13 +195,16 @@ const navbarLinks = ref([
   }
 }
 .search {
+  position: relative;
   flex: 5;
   border-right: 4px solid;
   border-color: #f4f4f4;
   display: flex;
   align-items: center;
   justify-content: left;
-  margin-left: 1vw;
+  svg {
+    margin-left: 1vw;
+  }
   input {
     font-size: 1.5rem;
     margin-left: 1vw;
@@ -163,6 +215,40 @@ const navbarLinks = ref([
     }
     &::placeholder {
       color: #cecece;
+    }
+  }
+  .search-focus {
+    width: 100%;
+    input {
+      margin: 0;
+    }
+    .focus-bar {
+      position: absolute;
+      width: 100%;
+      height: 80vh;
+      top: 0;
+      left: 0;
+      background-color: white;
+      z-index: 100;
+      .bar-header {
+        margin-top: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      hr {
+        margin-top: 2rem;
+      }
+      z-index: 100;
+    }
+    .focus-filter {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(1.5px);
+      z-index: 99;
     }
   }
 }

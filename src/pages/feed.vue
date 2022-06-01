@@ -1,6 +1,8 @@
 <script setup>
 import axios from 'axios';
 const posts = ref([]);
+const groupArr = ref([]);
+const coursesArr = ref([]);
 
 async function GetPosts() {
   let userImg = await axios.get(
@@ -118,16 +120,59 @@ async function GetPosts() {
     },
   ];
 }
+
 onMounted(() => {
   GetPosts();
+  axios
+    .get(
+      'https://api.unsplash.com/search/photos?page=1&query=college&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+    )
+    .then((response) => {
+      const imgArr = response.data.results;
+      groupArr.value = [
+        {
+          img: imgArr[0].urls.regular,
+          title: 'Moscow State Linguistical University',
+        },
+        {
+          img: imgArr[1].urls.regular,
+          title: 'Digital freelancers group',
+        },
+        {
+          img: imgArr[2].urls.regular,
+          title: 'Interaction design association',
+        },
+      ];
+    });
+  axios
+    .get(
+      'https://api.unsplash.com/search/photos?page=1&query=courses&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
+    )
+    .then((response) => {
+      const imgArr = response.data.results;
+      coursesArr.value = [
+        {
+          title: 'How I make cool designs?',
+          img: imgArr[0].urls.regular,
+          content: '6,340 viewers',
+        },
+        {
+          title: 'Advices for young HR-manage',
+          img: imgArr[1].urls.regular,
+          content: '8,123 viewers',
+        },
+        {
+          title: 'A little about usability testing',
+          img: imgArr[2].urls.regular,
+          content: '3,912 viewers',
+        },
+      ];
+    });
 });
 </script>
 
 <template>
   <main>
-    <header>
-      <Navbar />
-    </header>
     <section>
       <div class="container">
         <div class="content">
@@ -364,11 +409,68 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <side-content> </side-content>
+          <div class="new-article">
+            <button><p>WRITE NEW ARTICLE</p></button>
+          </div>
+          <side-content class="group">
+            <template #header>
+              <p>MY GROUPS<a href="javascript:;">VIEW ALL</a></p>
+            </template>
+            <template #content>
+              <div
+                v-for="item in groupArr"
+                :key="item.title"
+                class="group-card"
+              >
+                <img :src="item.img" alt="" />
+                <p>{{ item.title }}</p>
+              </div>
+            </template>
+            <template #footer>
+              <a href="javascript:;">SHOW ALL (8)</a>
+            </template>
+          </side-content>
+          <side-content class="hashtags">
+            <template #header>
+              <p>FOLLOWED HASHTAGS</p>
+            </template>
+            <template #content>
+              <div class="hashtag-box">
+                <a href="javascript:;"><p>#work</p></a>
+                <a href="javascript:;"><p>#business</p></a>
+                <a href="javascript:;"><p>#hr</p></a>
+                <a href="javascript:;"><p>#userinterface</p></a>
+                <a href="javascript:;"><p>#digital</p></a>
+                <a href="javascript:;"> <p>#userexperience</p></a>
+                <a href="javascript:;"><p>#ux</p></a>
+                <a href="javascript:;"><p>#ui</p></a>
+                <a href="javascript:;"><p>#freelance</p></a>
+              </div>
+            </template>
+          </side-content>
+          <side-content class="articles">
+            <template #header>
+              <p>TRENDING ARTICLES</p>
+            </template>
+            <template #content>
+              <div
+                v-for="item in coursesArr"
+                :key="item.title"
+                class="article-card"
+              >
+                <div class="left">
+                  <img :src="item.img" alt="" />
+                </div>
+                <div class="right">
+                  <p>{{ item.title }}</p>
+                  <span>{{ item.content }}</span>
+                </div>
+              </div>
+            </template>
+          </side-content>
         </div>
       </div>
     </section>
-    <Footer />
   </main>
 </template>
 
@@ -485,6 +587,91 @@ section {
                 font-size: 0.5rem;
               }
             }
+          }
+        }
+      }
+      .new-article {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background-color: white;
+        margin-top: 2rem;
+
+        button {
+          border: none;
+          background-color: transparent;
+          background: linear-gradient(180deg, #0077b5 0%, #0e6795 100%);
+          padding: 0.5rem 2.5rem;
+          border-radius: 5px;
+          p {
+            font-size: 1.25rem;
+            transform: scaleY(0.8);
+            color: white;
+          }
+        }
+      }
+      .group {
+        margin-top: 2rem;
+        .group-card {
+          display: flex;
+          align-items: center;
+          border: 1px solid #f4f4f4;
+          border-radius: 5px;
+          padding: 1rem;
+          margin-top: 1rem;
+          img {
+            width: 2.75vw;
+            height: 2.75vw;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+          p {
+            margin-left: 1rem;
+            font-weight: bold;
+          }
+        }
+      }
+      .hashtags {
+        .side-content {
+          .hashtag-box {
+            display: flex;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            a {
+              text-decoration: none;
+              p {
+                padding: 0.75rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
+                border-radius: 5px;
+                background-color: #e9f0f8;
+                color: #181818;
+              }
+            }
+          }
+        }
+      }
+      .article-card {
+        margin-top: 1rem;
+        display: flex;
+        .left {
+          display: flex;
+          align-items: center;
+          img {
+            width: 4vw;
+          }
+        }
+        .right {
+          margin-left: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          p {
+            font-weight: bold;
+          }
+          span {
+            font-size: 0.5rem;
           }
         }
       }

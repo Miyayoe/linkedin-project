@@ -28,7 +28,6 @@
         color: #0275b1;
         font-weight: bold;
         text-decoration: none;
-        border-bottom: 1px solid #0275b1;
       }
     }
     padding-bottom: 1rem;

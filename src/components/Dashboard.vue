@@ -24,6 +24,9 @@
 
 <style lang="scss" scoped>
 .side {
+  a {
+    border-bottom: 1px solid #0275b1;
+  }
   .info {
     margin: 1rem 0;
     p {
