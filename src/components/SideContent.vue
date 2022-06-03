@@ -18,8 +18,8 @@
 <style lang="scss">
 .side {
   background-color: white;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 16px * 2;
+  margin-bottom: 16px * 2;
   .side-header {
     p {
       font-weight: bold;
@@ -30,10 +30,10 @@
         text-decoration: none;
       }
     }
-    padding-bottom: 1rem;
+    padding-bottom: 16px;
   }
   .side-footer {
-    margin-top: 2rem;
+    margin-top: 16px * 2;
     a {
       color: #0275b1;
       font-weight: bold;

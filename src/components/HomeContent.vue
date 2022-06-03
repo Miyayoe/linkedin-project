@@ -19,11 +19,11 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 16px * 2;
   background-color: white;
-  padding: 2rem;
+  padding: 16px * 2;
   .mb {
-    margin-bottom: 1.5rem;
+    margin-bottom: 16px * 1.5;
   }
   .home-footer {
     a {

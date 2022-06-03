@@ -28,7 +28,7 @@
     border-bottom: 1px solid #0275b1;
   }
   .info {
-    margin: 1rem 0;
+    margin: 16px 0;
     p {
       font-family: var(--font);
       font-weight: bold;

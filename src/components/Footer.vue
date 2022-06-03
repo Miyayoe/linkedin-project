@@ -157,7 +157,7 @@
 <style lang="scss" scoped>
 footer {
   border-top: 2px solid #f4f4f4;
-  margin-top: 2rem;
+  margin-top: 16px * 2;
   width: 100%;
   height: 300px;
   background-color: #f7f9fb;
@@ -167,11 +167,11 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 75%;
-    padding-top: 2rem;
+    padding-top: 16px * 2;
     p {
       font-size: 1.25rem;
       font-weight: bold;
-      margin-bottom: 1rem;
+      margin-bottom: 16px;
       transform: scaleY(0.9);
       letter-spacing: 0.05rem;
     }
@@ -190,7 +190,7 @@ footer {
           a {
             text-decoration: none;
             color: #181818;
-            margin-bottom: 0.5rem;
+            margin-bottom: 16px * 0.5;
             span {
               letter-spacing: 0.05rem;
             }
@@ -203,13 +203,13 @@ footer {
       .button {
         button {
           width: 60%;
-          margin-bottom: 1rem;
+          margin-bottom: 16px;
           border: 2px solid #0275b1;
           border-radius: 5px;
           background-color: transparent;
           color: #0275b1;
           display: flex;
-          padding: 0.75rem 1rem;
+          padding: 16px * 0.75 16px;
           &.questions {
             background-color: #0275b1;
             color: white;
@@ -237,7 +237,7 @@ footer {
         width: 60%;
         font-size: 1.25rem;
         border: 1px solid #f0f0f0;
-        padding: 0.25rem 1rem;
+        padding: 16px * 0.25 16px;
         appearance: none;
         background: url(../assets/svg/arrow-down.svg) no-repeat right white;
       }

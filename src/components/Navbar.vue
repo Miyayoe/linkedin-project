@@ -754,7 +754,7 @@ onMounted(() => {
       background-color: white;
       z-index: 100;
       .bar-header {
-        margin-top: 1.5rem;
+        margin-top: 16px * 1.5;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -763,7 +763,7 @@ onMounted(() => {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1rem;
+        padding: 16px;
         background-color: white;
         margin-top: auto;
 
@@ -772,7 +772,7 @@ onMounted(() => {
           border: none;
           background-color: transparent;
           background: linear-gradient(180deg, #0077b5 0%, #0e6795 100%);
-          padding: 0.5rem 2.5rem;
+          padding: 16px * 0.5 16px * 2.5;
           border-radius: 5px;
           p {
             font-size: 1.25rem;
@@ -782,12 +782,12 @@ onMounted(() => {
         }
       }
       hr {
-        margin-top: 2rem;
+        margin-top: 16px * 2;
       }
       .search-hint {
-        margin: 0 1.5rem;
+        margin: 0 16px * 1.5;
         .hint-title {
-          margin: 1rem 0rem;
+          margin: 16px 0rem;
           font-size: 1.25rem;
           color: rgba(24, 24, 24, 0.2);
         }
@@ -801,8 +801,8 @@ onMounted(() => {
         .card {
           border: 1px solid #f4f4f4;
           border-radius: 5px;
-          margin: 1rem 0.5rem;
-          padding: 1rem;
+          margin: 16px 16px * 0.5;
+          padding: 16px;
           display: flex;
           .left {
             img {
@@ -816,7 +816,7 @@ onMounted(() => {
           .right {
             display: flex;
             width: 100%;
-            padding-left: 1rem;
+            padding-left: 16px;
             align-items: center;
             justify-content: flex-end;
             .detail {
@@ -842,7 +842,7 @@ onMounted(() => {
           border-radius: 0%;
         }
         hr {
-          margin-top: 1rem;
+          margin-top: 16px;
         }
       }
       z-index: 100;
@@ -872,7 +872,7 @@ onMounted(() => {
     height: 60px;
   }
   .info {
-    margin-left: 1rem;
+    margin-left: 16px;
     .user {
       display: flex;
       align-items: center;
@@ -880,7 +880,7 @@ onMounted(() => {
         font-size: 1.1rem;
       }
       span {
-        margin-left: 1rem;
+        margin-left: 16px;
         color: rgba(24, 24, 24, 0.1);
         font-size: 1.2rem;
       }
@@ -889,7 +889,7 @@ onMounted(() => {
       display: flex;
 
       span {
-        margin-left: 0.5rem;
+        margin-left: 16px * 0.5;
         color: #02b033;
       }
     }
@@ -899,7 +899,7 @@ onMounted(() => {
   flex: 0.8;
   border-right: 4px solid;
   border-color: #f4f4f4;
-  margin-right: 2rem;
+  margin-right: 16px * 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -937,7 +937,7 @@ onMounted(() => {
     position: absolute;
     width: 6rem;
     height: 6rem;
-    margin-left: -6rem;
+    margin-left: 16px * -6;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -971,7 +971,7 @@ onMounted(() => {
     background-color: white;
     .header {
       display: flex;
-      padding: 1.25rem;
+      padding: 16px * 1.25;
       justify-content: center;
       align-items: center;
       p {
@@ -993,12 +993,12 @@ onMounted(() => {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 2rem;
+      margin: 16px * 2;
       button {
         border: none;
         width: 100%;
         background-color: #0275b1;
-        padding: 0.5rem 1rem;
+        padding: 16px * 0.5 16px;
         border-radius: 5px;
         display: flex;
 
@@ -1007,7 +1007,7 @@ onMounted(() => {
           display: flex;
         }
         .right {
-          margin-left: 1rem;
+          margin-left: 16px;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -1016,7 +1016,7 @@ onMounted(() => {
             color: white;
           }
           span {
-            margin-top: 0.1rem;
+            margin-top: 16px * 0.1;
             font-size: 0.5rem;
             color: white;
           }
@@ -1027,13 +1027,13 @@ onMounted(() => {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 1rem;
+      margin-bottom: 16px;
       .item {
         width: 40%;
         border: 1px solid #f4f4f4;
         border-radius: 5px;
-        padding: 1rem;
-        margin: 0 0.5rem 0.5rem 0;
+        padding: 16px;
+        margin: 0 16px * 0.5 16px * 0.5 0;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -1042,7 +1042,7 @@ onMounted(() => {
           border: 1px solid #0275b1;
         }
         p {
-          margin-left: 1rem;
+          margin-left: 16px;
         }
       }
     }
@@ -1050,7 +1050,7 @@ onMounted(() => {
       display: flex;
       flex-direction: column;
       .services-title {
-        padding: 1rem;
+        padding: 16px;
         font-size: 1.25rem;
         font-weight: bold;
       }
@@ -1059,8 +1059,8 @@ onMounted(() => {
         width: 90%;
         border: 1px solid #f4f4f4;
         border-radius: 5px;
-        padding: 1rem;
-        margin-bottom: 1rem;
+        padding: 16px;
+        margin-bottom: 16px;
         p {
           font-weight: bold;
         }
@@ -1071,11 +1071,11 @@ onMounted(() => {
     }
     .premium-button {
       width: 90%;
-      padding: 1rem 2rem;
+      padding: 16px 16px * 2;
       align-self: center;
       color: white;
       margin-top: auto;
-      margin-bottom: 2rem;
+      margin-bottom: 16px;
       cursor: pointer;
 
       p {

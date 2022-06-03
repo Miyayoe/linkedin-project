@@ -488,7 +488,7 @@ section {
       width: 55vw;
       .new-post {
         background-color: white;
-        padding: 2rem;
+        padding: 16px * 2;
         p {
           font-weight: bold;
         }
@@ -594,15 +594,15 @@ section {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1rem;
+        padding: 16px;
         background-color: white;
-        margin-top: 2rem;
+        margin-top: 16px * 2;
 
         button {
           border: none;
           background-color: transparent;
           background: linear-gradient(180deg, #0077b5 0%, #0e6795 100%);
-          padding: 0.5rem 2.5rem;
+          padding: 16px * 0.5 16px * 2.5;
           border-radius: 5px;
           p {
             font-size: 1.25rem;
@@ -612,14 +612,14 @@ section {
         }
       }
       .group {
-        margin-top: 2rem;
+        margin-top: 16px * 2;
         .group-card {
           display: flex;
           align-items: center;
           border: 1px solid #f4f4f4;
           border-radius: 5px;
-          padding: 1rem;
-          margin-top: 1rem;
+          padding: 16px;
+          margin-top: 16px;
           img {
             width: 2.75vw;
             height: 2.75vw;
@@ -627,7 +627,7 @@ section {
             border-radius: 50%;
           }
           p {
-            margin-left: 1rem;
+            margin-left: 16px;
             font-weight: bold;
           }
         }
@@ -636,14 +636,14 @@ section {
         .side-content {
           .hashtag-box {
             display: flex;
-            margin-top: 1rem;
+            margin-top: 16px;
             flex-wrap: wrap;
             a {
               text-decoration: none;
               p {
-                padding: 0.75rem;
-                margin-right: 0.5rem;
-                margin-bottom: 0.5rem;
+                padding: 16px * 0.75;
+                margin-right: 16px * 0.5;
+                margin-bottom: 16px * 0.5;
                 border-radius: 5px;
                 background-color: #e9f0f8;
                 color: #181818;
@@ -653,7 +653,7 @@ section {
         }
       }
       .article-card {
-        margin-top: 1rem;
+        margin-top: 16px;
         display: flex;
         .left {
           display: flex;
@@ -663,7 +663,7 @@ section {
           }
         }
         .right {
-          margin-left: 1rem;
+          margin-left: 16px;
           display: flex;
           flex-direction: column;
           justify-content: center;

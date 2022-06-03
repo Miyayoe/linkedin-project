@@ -313,10 +313,10 @@ const handleClickComment = () => {
 
 <style lang="scss" scoped>
 .post-container {
-  margin-bottom: 2rem;
+  margin-bottom: 16px * 2;
   background-color: white;
   .react {
-    padding: 1rem;
+    padding: 16px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -328,7 +328,7 @@ const handleClickComment = () => {
     }
   }
   .post-content {
-    padding: 1.5rem;
+    padding: 16px * 1.5;
     .post-user {
       display: flex;
       align-items: center;
@@ -341,7 +341,7 @@ const handleClickComment = () => {
         }
       }
       .right {
-        margin-left: 1rem;
+        margin-left: 16px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -358,6 +358,8 @@ const handleClickComment = () => {
     .post-text {
       p {
         color: #181818;
+        padding: 16px * 0.5;
+        line-height: 1.5;
       }
       .post-more {
         position: relative;
@@ -384,7 +386,7 @@ const handleClickComment = () => {
       }
     }
     .post-img {
-      margin-top: 1rem;
+      margin-top: 16px;
       height: 400px;
       overflow: hidden;
       img {
@@ -395,13 +397,13 @@ const handleClickComment = () => {
       }
     }
     .post-file {
-      margin-top: 1rem;
+      margin-top: 16px;
       display: flex;
       align-items: center;
       background-color: #e9f0f8;
-      padding: 1.5rem;
+      padding: 16px * 1.5;
       .right {
-        margin-left: 1rem;
+        margin-left: 16px;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -432,7 +434,7 @@ const handleClickComment = () => {
 
     .react-button {
       display: flex;
-      padding: 1rem 2rem;
+      padding: 16px 16px * 2;
       align-items: center;
       cursor: pointer;
       transition: 0.2s linear;
@@ -444,7 +446,7 @@ const handleClickComment = () => {
         }
       }
       svg {
-        margin-right: 0.5rem;
+        margin-right: 16px * 0.5;
         stroke: #0275b1;
       }
       &.active {

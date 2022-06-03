@@ -578,7 +578,7 @@ section {
           position: relative;
           .buttons {
             position: relative;
-            margin: 1.5rem 2rem;
+            margin: 16px * 1.5 16px * 2;
             align-items: center;
             button {
               min-width: 35px;
@@ -600,7 +600,7 @@ section {
               }
               &.edit {
                 float: right;
-                margin-right: 1rem;
+                margin-right: 16px;
                 padding: 10px;
               }
               &.more {
@@ -641,7 +641,7 @@ section {
           }
           .right {
             flex: 1;
-            margin: 2rem 1rem 0rem 1rem;
+            margin: 16px * 2 16px 0 16px;
             .info-header {
               display: flex;
               justify-content: flex-end;
@@ -652,7 +652,7 @@ section {
                 font-size: 1.5rem;
                 font-weight: bold;
                 svg {
-                  margin-left: 0.5rem;
+                  margin-left: 16px * 0.5;
                 }
               }
               .user-location {
@@ -660,24 +660,24 @@ section {
                 margin-left: auto;
                 color: #181818;
                 svg {
-                  margin-right: 0.5rem;
+                  margin-right: 16px * 0.5;
                 }
               }
             }
             .info-content {
-              margin-top: 1rem;
+              margin-top: 16px;
               font-size: 1.25rem;
               p {
                 color: #181818;
               }
             }
             .info-footer {
-              margin-top: 1rem;
+              margin-top: 16px;
               button {
                 border: 1px solid #0275b1;
                 background-color: transparent;
-                padding: 0.8rem 2rem;
-                margin-right: 1rem;
+                padding: 16px * 0.8 16px * 2;
+                margin-right: 16px;
                 border-radius: 5px;
                 font-size: 1rem;
                 font-weight: bold;
@@ -692,7 +692,7 @@ section {
         }
       }
       .tabs {
-        margin-top: 2rem;
+        margin-top: 16px * 2;
         width: 100%;
         ul {
           width: 100%;
@@ -706,7 +706,7 @@ section {
             button {
               transform: translateY(10%);
               border: 1px solid #e7e7e7;
-              padding: 1.5rem 5rem;
+              padding: 16px * 1.5 16px * 5;
               background-color: white;
               font-size: 1rem;
               font-weight: bold;
@@ -716,7 +716,7 @@ section {
               &.active {
                 background: linear-gradient(180deg, #0077b5 0%, #0e6795 100%);
                 color: #fff;
-                padding: 2rem 10rem;
+                padding: 16px * 2 16px * 10;
               }
             }
           }
@@ -744,7 +744,7 @@ section {
           }
           span {
             color: #747474;
-            margin-left: 1rem;
+            margin-left: 16px;
             font-size: 1.75rem;
           }
         }
@@ -760,7 +760,7 @@ section {
             }
             p {
               font-weight: bold;
-              margin: 0.5rem 0rem;
+              margin: 16px * 0.5 0rem;
             }
             span {
               font-size: 0.5rem;
@@ -784,12 +784,12 @@ section {
           .card {
             width: 15vw;
             border: 1px solid #f4f4f4;
-            padding: 1rem;
+            padding: 16px;
             border-radius: 5px;
             p {
               font-weight: bold;
               font-size: 1.25rem;
-              margin: 0.5rem 0;
+              margin: 16px * 0.5 0;
               span {
                 float: right;
                 color: #0275b1;
@@ -847,9 +847,9 @@ section {
           }
           .card {
             display: flex;
-            padding: 1rem 0;
+            padding: 16px 0;
             .left {
-              padding: 0 1rem;
+              padding: 0 16px;
               img {
                 width: 50px;
                 height: 50px;
@@ -860,7 +860,7 @@ section {
             .right {
               p.title {
                 font-weight: bold;
-                margin-bottom: 1rem;
+                margin-bottom: 16px;
               }
               p.company {
                 font-size: 0.5rem;
@@ -875,11 +875,11 @@ section {
               p.time {
                 font-size: 0.5rem;
 
-                margin-bottom: 0.5rem;
+                margin-bottom: 16px * 0.5;
                 color: #181818;
                 margin-bottom: 1rem;
                 span {
-                  margin-left: 0.5rem;
+                  margin-left: 16px * 0.5;
                   font-size: 0.75rem;
                   font-weight: bold;
 
@@ -910,7 +910,7 @@ section {
           .card {
             display: flex;
             .left {
-              padding: 0 1rem;
+              padding: 0 16px;
               img {
                 width: 50px;
                 height: 50px;
@@ -921,19 +921,19 @@ section {
             .right {
               p.title {
                 font-weight: bold;
-                margin-bottom: 1rem;
+                margin-bottom: 16px;
               }
               p.degree {
                 font-size: 0.5rem;
 
-                margin-bottom: 0.5rem;
+                margin-bottom: 16px * 0.5;
               }
               p.time {
                 font-size: 0.5rem;
 
-                margin-bottom: 0.5rem;
+                margin-bottom: 16px * 0.5;
                 color: #181818;
-                margin-bottom: 1rem;
+                margin-bottom: 16px;
               }
               p.experience-content {
                 font-size: 0.5rem;
@@ -957,7 +957,7 @@ section {
           .card {
             display: flex;
             width: 100%;
-            margin: 1rem 0;
+            margin: 16px 0;
             .left {
               img {
                 width: 50px;
@@ -970,11 +970,11 @@ section {
               display: flex;
               flex-direction: column;
               justify-content: center;
-              margin-left: 0.5rem;
+              margin-left: 16px * 0.5;
               p {
                 font-weight: bold;
 
-                margin-bottom: 0.25rem;
+                margin-bottom: 16px * 0.25;
               }
               span {
                 font-size: 0.5rem;
@@ -990,7 +990,7 @@ section {
           flex-direction: column;
           .card {
             display: flex;
-            margin: 0.5rem 0;
+            margin: 16px * 0.5 0;
             .left {
               img {
                 width: 150px;
@@ -1002,7 +1002,7 @@ section {
               display: flex;
               flex-direction: column;
               justify-content: center;
-              margin-left: 1rem;
+              margin-left: 16px;
               p {
                 font-weight: bold;
               }
