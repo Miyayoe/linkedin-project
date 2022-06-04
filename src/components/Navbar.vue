@@ -83,7 +83,7 @@ onMounted(() => {
   <nav id="navbar">
     <div class="logo-zone">
       <router-link to="/">
-        <SvgIcon name="logo" style="width: 60px; height: 60px" />
+        <SvgIcon name="navbar/logo" :style="'width: 60px; height: 60px'" />
       </router-link>
     </div>
     <div class="nav-items">
@@ -93,15 +93,15 @@ onMounted(() => {
           :key="item.title"
           :to="item.url"
         >
-          <SvgIcon :name="item.svg" />
+          <SvgIcon :name="`navbar/${item.svg}`" />
           <p>{{ item.title }}</p>
         </router-link>
       </div>
     </div>
     <div class="search">
       <SvgIcon
-        name="search"
-        style="width: 30px; height: 30px"
+        name="navbar/search"
+        :style="'width: 30px; height: 30px'"
         color="#0275B1"
       />
       <input type="text" placeholder="Search" @focus="searchFocus = true" />
@@ -268,8 +268,8 @@ onMounted(() => {
             <span
               >+32
               <SvgIcon
-                name="arrow-up-right"
-                style="width: 15px; height: 15px"
+                name="navbar/arrow-up-right"
+                :style="'width: 15px; height: 15px'"
                 color="#02B033"
             /></span>
           </p>
@@ -277,12 +277,12 @@ onMounted(() => {
       </div>
     </div>
     <div class="other-button" @click="otherOpen = true">
-      <SvgIcon name="other" style="width: 30px; height: 30px" />
+      <SvgIcon name="navbar/other" :style="'width: 30px; height: 30px'" />
       <p>OTHER</p>
     </div>
     <div class="other-sidebar" :class="{ active: otherOpen }">
       <div class="close-button" @click="otherOpen = false">
-        <SvgIcon name="close" style="width: 30px; height: 30px" />
+        <SvgIcon name="navbar/close" :style="'width: 30px; height: 30px'" />
         <p>CLOSE</p>
       </div>
       <div class="other-container">
@@ -298,19 +298,16 @@ onMounted(() => {
             >
               <path
                 d="M15 27.5C21.9036 27.5 27.5 21.9036 27.5 15C27.5 8.09644 21.9036 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5Z"
-                stroke="#0275B1"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
               <path
                 d="M11.3623 11.25C11.6562 10.4146 12.2362 9.71013 12.9997 9.26142C13.7633 8.8127 14.6609 8.64867 15.5338 8.79839C16.4066 8.94811 17.1983 9.40191 17.7687 10.0794C18.339 10.7569 18.6511 11.6144 18.6498 12.5C18.6498 15 14.8998 16.25 14.8998 16.25"
-                stroke="#0275B1"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
               <path
                 d="M15 21.25H15.0125"
-                stroke="#0275B1"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
@@ -657,7 +654,7 @@ onMounted(() => {
 #navbar {
   display: flex;
   width: 100%;
-  height: 6rem;
+  height: 16px * 6;
   background-color: white;
 }
 .logo-zone {
@@ -935,8 +932,8 @@ onMounted(() => {
   }
   .close-button {
     position: absolute;
-    width: 6rem;
-    height: 6rem;
+    width: 16px * 6;
+    height: 16px * 6;
     margin-left: 16px * -6;
     background-color: white;
     display: flex;
@@ -971,7 +968,8 @@ onMounted(() => {
     background-color: white;
     .header {
       display: flex;
-      padding: 16px * 1.25;
+      height: 16px * 6;
+      padding: 0 16px * 1.25;
       justify-content: center;
       align-items: center;
       p {
@@ -984,8 +982,19 @@ onMounted(() => {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        svg {
+          stroke: #0275b1;
+          transition: 0.2s linear;
+        }
         span {
           color: #0275b1;
+        }
+        &:hover {
+          svg {
+            fill: #0275b1;
+            stroke: white;
+          }
         }
       }
     }
@@ -1061,6 +1070,10 @@ onMounted(() => {
         border-radius: 5px;
         padding: 16px;
         margin-bottom: 16px;
+        transition: 0.2s linear;
+        &:hover {
+          border: 1px solid #0275b1;
+        }
         p {
           font-weight: bold;
         }

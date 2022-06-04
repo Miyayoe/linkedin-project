@@ -4,7 +4,7 @@ const posts = ref([]);
 const groupArr = ref([]);
 const coursesArr = ref([]);
 
-async function GetPosts() {
+async function getPosts() {
   let userImg = await axios.get(
     'https://api.unsplash.com/search/photos?query=users&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
   );
@@ -122,7 +122,7 @@ async function GetPosts() {
 }
 
 onMounted(() => {
-  GetPosts();
+  getPosts();
   axios
     .get(
       'https://api.unsplash.com/search/photos?page=1&query=college&client_id=cZdfd8fqxmmbqYfHGbYbeHxf7nO9WRv4lxG0Wv4_Cc8'
@@ -671,6 +671,7 @@ section {
             font-weight: bold;
           }
           span {
+            margin-top: 0.5rem;
             font-size: 0.5rem;
           }
         }

@@ -6,8 +6,11 @@
   }
 
 * {
-font-family: var(--font);
-box-sizing: border-box;
+  font-family: var(--font);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 p,
 span {
@@ -23,3 +26,4 @@ button{
 a{
   text-decoration: none;
 }
+
