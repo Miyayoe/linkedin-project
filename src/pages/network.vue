@@ -415,6 +415,7 @@ section {
     display: flex;
     width: 80%;
     justify-content: space-between;
+    align-items: flex-start;
     .sidebar {
       background-color: white;
       width: 15%;
