@@ -142,8 +142,204 @@ onMounted(() => {
           </div>
           <p v-show="item.heightLight" class="height-light-point">○</p>
         </div>
+        <div class="new-chat">
+          <button><p>START NEW CHAT</p></button>
+        </div>
       </div>
-      <div class="content"></div>
+      <div class="content">
+        <div class="chat-box">
+          <div class="chat-header">
+            <p>Chat with <span>Kyle Fisher</span></p>
+            <p class="timestamp">LAST ONLINE: 4 HOURS AGO</p>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.25 14.298L16.0557 24.3305C14.8069 25.5595 13.113 26.25 11.3469 26.25C9.58069 26.25 7.88686 25.5595 6.63798 24.3305C5.38911 23.1014 4.6875 21.4345 4.6875 19.6963C4.6875 17.9582 5.38911 16.2912 6.63798 15.0622L16.8322 5.02969C17.6648 4.21032 18.794 3.75 19.9715 3.75C21.1489 3.75 22.2782 4.21032 23.1107 5.02969C23.9433 5.84906 24.4111 6.96036 24.4111 8.11912C24.4111 9.27788 23.9433 10.3892 23.1107 11.2086L12.9054 21.241C12.4891 21.6507 11.9245 21.8809 11.3358 21.8809C10.747 21.8809 10.1824 21.6507 9.76614 21.241C9.34985 20.8314 9.11598 20.2757 9.11598 19.6963C9.11598 19.1169 9.34985 18.5613 9.76614 18.1516L19.1839 8.89421"
+                stroke="#0275B1"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <p>Shared media (12)</p>
+          </div>
+          <div v-if="chatArr.length > 0" class="chat-content">
+            <div class="another-msg">
+              <div class="another-img">
+                <img :src="chatArr[3].images[0]" alt="" />
+              </div>
+              <div class="msg-stack">
+                <p>It’ll be great! I need this job, but...</p>
+                <p>So, it’s up to you!</p>
+                <span>4:29 PM</span>
+              </div>
+            </div>
+            <div class="mine-msg">
+              <div class="msg-stack">
+                <div class="msg-content">
+                  <p>
+                    Wow! I can invite you in my new project. We need a product
+                    designer right now!
+                  </p>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+              <span>
+                <svg
+                  width="22"
+                  height="15"
+                  viewBox="0 0 22 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.412 3.75L12.2944 10.625L9.05908 7.5"
+                    stroke="#0275B1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12.9413 3.75L5.82367 10.625L2.58838 7.5"
+                    stroke="#0275B1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+                >4:30 PM</span
+              >
+            </div>
+            <div class="another-msg">
+              <div class="another-img">
+                <img :src="chatArr[3].images[0]" alt="" />
+              </div>
+              <div class="msg-stack">
+                <p>Nope, they kicked me out of the office!</p>
+                <span>4:29 PM</span>
+              </div>
+            </div>
+            <div class="mine-msg">
+              <div class="msg-stack">
+                <div class="msg-content">
+                  <p>
+                    Hi, Kyle. How are you doing? Did you get that job yesterday?
+                  </p>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+              <span>
+                <svg
+                  width="22"
+                  height="15"
+                  viewBox="0 0 22 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.412 3.75L12.2944 10.625L9.05908 7.5"
+                    stroke="#0275B1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12.9413 3.75L5.82367 10.625L2.58838 7.5"
+                    stroke="#0275B1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+                >4:20 PM
+              </span>
+            </div>
+            <div class="date-divider">
+              <hr />
+              <span>YESTERDAY, 29 AUG</span>
+              <hr />
+            </div>
+            <div class="another-msg">
+              <div class="another-img">
+                <img :src="chatArr[3].images[0]" alt="" />
+              </div>
+              <div class="msg-stack">
+                <p>Nope, they kicked me out of the office!</p>
+                <span>4:29 PM</span>
+              </div>
+            </div>
+          </div>
+          <div class="chat-footer">
+            <input type="text " placeholder="Write your message" />
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.15">
+                <path
+                  d="M26.25 14.2981L16.0557 24.3305C14.8069 25.5596 13.113 26.2501 11.3469 26.2501C9.58069 26.2501 7.88686 25.5596 6.63798 24.3305C5.38911 23.1015 4.6875 21.4345 4.6875 19.6964C4.6875 17.9582 5.38911 16.2913 6.63798 15.0622L16.8322 5.02975C17.6648 4.21038 18.794 3.75006 19.9715 3.75006C21.1489 3.75006 22.2782 4.21038 23.1107 5.02975C23.9433 5.84912 24.4111 6.96042 24.4111 8.11918C24.4111 9.27795 23.9433 10.3892 23.1107 11.2086L12.9054 21.2411C12.4891 21.6508 11.9245 21.8809 11.3358 21.8809C10.747 21.8809 10.1824 21.6508 9.76614 21.2411C9.34985 20.8314 9.11598 20.2758 9.11598 19.6964C9.11598 19.117 9.34985 18.5613 9.76614 18.1517L19.1839 8.89427"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                y="6.10352e-05"
+                width="32"
+                height="32"
+                rx="4"
+                fill="url(#paint0_linear_1_1515)"
+              />
+              <g clip-path="url(#clip0_1_1515)">
+                <path
+                  d="M21.6668 10.3334L14.3335 17.6667"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M21.6668 10.3334L17.0002 23.6667L14.3335 17.6667L8.3335 15L21.6668 10.3334Z"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <linearGradient
+                  id="paint0_linear_1_1515"
+                  x1="16"
+                  y1="6.10352e-05"
+                  x2="16"
+                  y2="32.0001"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#0077B5" />
+                  <stop offset="1" stop-color="#0E6795" />
+                </linearGradient>
+                <clipPath id="clip0_1_1515">
+                  <rect
+                    width="16"
+                    height="16"
+                    fill="white"
+                    transform="translate(7 9.00006)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -156,14 +352,16 @@ section {
   justify-content: center;
   .container {
     margin-top: 70px;
-    width: 80%;
+    width: 70%;
     display: flex;
+    justify-content: space-between;
     .sidebar {
       width: 20%;
-      background-color: #fcfdfd;
+      // background-color: #fcfdfd;
       .chats {
         width: 100%;
         padding: 16px 16px * 2;
+        background-color: #fcfdfd;
         p {
           font-weight: bold;
         }
@@ -172,6 +370,7 @@ section {
         display: flex;
         width: 100%;
         align-items: center;
+        background-color: #fcfdfd;
         border-bottom: 1px solid #f4f4f4;
         position: relative;
         .front-box {
@@ -274,6 +473,171 @@ section {
               border-radius: 50%;
               margin-right: 16px * 0.25;
             }
+          }
+        }
+      }
+      .new-chat {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        background-color: white;
+        margin-top: 16px * 2;
+
+        button {
+          border: none;
+          background-color: transparent;
+          background: linear-gradient(180deg, #0077b5 0%, #0e6795 100%);
+          padding: 16px * 0.5 16px * 2.5;
+          border-radius: 5px;
+          p {
+            font-size: 1.25rem;
+            transform: scaleY(0.8);
+            color: white;
+          }
+        }
+      }
+    }
+    .content {
+      width: 75%;
+      .chat-box {
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        display: grid;
+        grid-template-rows: 10% 1fr 12.5%;
+        .chat-header {
+          border-bottom: 1px solid #f4f4f4;
+          display: flex;
+          align-items: center;
+          padding: 16px * 2;
+          p {
+            font-weight: bold;
+            span {
+              color: #0275b1;
+              font-weight: bold;
+            }
+          }
+          .timestamp {
+            color: rgba(24, 24, 24, 0.5);
+            padding-left: 16px;
+          }
+          svg {
+            margin-left: auto;
+            margin-right: 16px;
+            cursor: pointer;
+          }
+        }
+        .chat-content {
+          overflow: hidden;
+          display: flex;
+          mask-image: linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 20%
+          );
+          -webkit-mask-image: -webkit-linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.8) 10%,
+            rgba(0, 0, 0, 1) 20%
+          );
+          background: #fff;
+          flex-direction: column-reverse;
+          .date-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 16px * 2;
+            span {
+              color: rgba(24, 24, 24, 0.5);
+              font-weight: bold;
+              margin: 0 16px;
+            }
+            hr {
+              flex: 1;
+            }
+          }
+          .another-msg {
+            display: flex;
+            flex-direction: row-reverse;
+            padding-bottom: 16px * 2;
+
+            .another-img {
+              width: 16px * 3;
+              height: 16px * 3;
+              margin: 0 16px;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                margin-top: -25%;
+                border-radius: 50%;
+              }
+            }
+            .msg-stack {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+              p {
+                background-color: #e9f0f8;
+                padding: 16px;
+                border-radius: 5px;
+                margin-bottom: 16px * 0.5;
+              }
+              span {
+                color: rgba(24, 24, 24, 0.3);
+              }
+            }
+          }
+          .mine-msg {
+            display: flex;
+            margin-left: 16px * 3;
+            flex-direction: column;
+
+            .msg-stack {
+              display: flex;
+              .msg-content {
+                position: relative;
+                margin-bottom: 16px * 0.5;
+
+                p {
+                  background-color: #0275b1;
+                  color: white;
+                  padding: 16px;
+                  border-radius: 5px;
+                }
+                .triangle {
+                  position: absolute;
+                  border-width: 0px 0px 16px 20px;
+                  border-color: #0275b1 transparent;
+                  border-style: solid;
+                  width: 0;
+                  height: 0;
+                  bottom: 0;
+                  left: -16px;
+                }
+              }
+            }
+          }
+        }
+        .chat-footer {
+          border-top: 1px solid #f4f4f4;
+          display: flex;
+          align-items: center;
+          input {
+            flex: 1;
+            outline: none;
+            border: none;
+            font-size: 16px * 1.5;
+            margin-left: 16px * 2;
+            &::placeholder {
+              color: rgba(24, 24, 24, 0.2);
+            }
+          }
+          svg {
+            margin-right: 16px;
+            cursor: pointer;
           }
         }
       }
