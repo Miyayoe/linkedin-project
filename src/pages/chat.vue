@@ -2,6 +2,47 @@
 import axios from 'axios';
 
 const chatArr = ref([]);
+const mesArr = ref([]);
+const message = computed(() => {
+  const resultArr = [];
+  const dataArr = [...mesArr.value];
+  resultArr.push({
+    img: dataArr[0].img,
+    messages: [dataArr[0].text],
+    timestamp: dataArr[0].timestamp,
+    another: dataArr[0].another,
+  });
+  dataArr.shift();
+
+  while (dataArr.length) {
+    if (resultArr[resultArr.length - 1].another == dataArr[0].another) {
+      resultArr[resultArr.length - 1].messages.unshift(dataArr[0].text);
+    } else {
+      resultArr.push({
+        img: dataArr[0].img,
+        messages: [dataArr[0].text],
+        timestamp: dataArr[0].timestamp,
+        another: dataArr[0].another,
+      });
+    }
+    dataArr.shift();
+  }
+  return resultArr;
+});
+const newMessage = ref('');
+const handleNewMessage = () => {
+  if (!newMessage.value) return;
+  mesArr.value.unshift({
+    img: '',
+    text: newMessage.value,
+    timestamp: `${new Date().getHours() % 12}:${new Date()
+      .getMinutes()
+      .toString()
+      .padStart(2, 0)} ${new Date().getHours > 12 ? 'PM' : 'AM'}`,
+    another: false,
+  });
+  newMessage.value = '';
+};
 
 onMounted(() => {
   (async () => {
@@ -86,6 +127,38 @@ onMounted(() => {
         heightLight: false,
       },
     ];
+    mesArr.value = [
+      {
+        img: chatArr.value[3].images[0],
+        text: 'So, it’s up to you!',
+        timestamp: '4:30 PM',
+        another: true,
+      },
+      {
+        img: chatArr.value[3].images[0],
+        text: 'It’ll be great! I need this job, but...',
+        timestamp: '4:30 PM',
+        another: true,
+      },
+      {
+        img: '',
+        text: 'Wow! I can invite you in my new project. We need a product designer right now!',
+        timestamp: '4:29 PM',
+        another: false,
+      },
+      {
+        img: chatArr.value[3].images[0],
+        text: 'Nope, they kicked me out of the office!',
+        timestamp: '4:29 PM',
+        another: true,
+      },
+      {
+        img: '',
+        text: 'Hi, Kyle. How are you doing? Did you get that job yesterday?',
+        timestamp: '4:20 PM',
+        another: false,
+      },
+    ];
   })();
 });
 </script>
@@ -168,28 +241,33 @@ onMounted(() => {
             </svg>
             <p>Shared media (12)</p>
           </div>
-          <div v-if="chatArr.length > 0" class="chat-content">
-            <div class="another-msg">
-              <div class="another-img">
+          <div v-if="mesArr.length > 0" class="chat-content">
+            <div
+              v-for="item in message"
+              :key="item.messages[0]"
+              :class="{
+                'another-msg': item.another,
+                'mine-msg': !item.another,
+              }"
+            >
+              <div v-show="item.another" class="another-img">
                 <img :src="chatArr[3].images[0]" alt="" />
               </div>
               <div class="msg-stack">
-                <p>It’ll be great! I need this job, but...</p>
-                <p>So, it’s up to you!</p>
-                <span>4:29 PM</span>
-              </div>
-            </div>
-            <div class="mine-msg">
-              <div class="msg-stack">
-                <div class="msg-content">
-                  <p>
-                    Wow! I can invite you in my new project. We need a product
-                    designer right now!
-                  </p>
+                <div
+                  v-show="!item.another"
+                  v-for="msg in item.messages"
+                  class="msg-content"
+                >
+                  <p>{{ msg }}</p>
                   <div class="triangle"></div>
                 </div>
+                <p v-show="item.another" v-for="msg in item.messages">
+                  {{ msg }}
+                </p>
+                <span v-show="item.another">{{ item.timestamp }}</span>
               </div>
-              <span>
+              <span v-show="!item.another">
                 <svg
                   width="22"
                   height="15"
@@ -209,48 +287,7 @@ onMounted(() => {
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   /></svg
-                >4:30 PM</span
-              >
-            </div>
-            <div class="another-msg">
-              <div class="another-img">
-                <img :src="chatArr[3].images[0]" alt="" />
-              </div>
-              <div class="msg-stack">
-                <p>Nope, they kicked me out of the office!</p>
-                <span>4:29 PM</span>
-              </div>
-            </div>
-            <div class="mine-msg">
-              <div class="msg-stack">
-                <div class="msg-content">
-                  <p>
-                    Hi, Kyle. How are you doing? Did you get that job yesterday?
-                  </p>
-                  <div class="triangle"></div>
-                </div>
-              </div>
-              <span>
-                <svg
-                  width="22"
-                  height="15"
-                  viewBox="0 0 22 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M19.412 3.75L12.2944 10.625L9.05908 7.5"
-                    stroke="#0275B1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M12.9413 3.75L5.82367 10.625L2.58838 7.5"
-                    stroke="#0275B1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  /></svg
-                >4:20 PM
+                >{{ item.timestamp }}
               </span>
             </div>
             <div class="date-divider">
@@ -269,7 +306,12 @@ onMounted(() => {
             </div>
           </div>
           <div class="chat-footer">
-            <input type="text " placeholder="Write your message" />
+            <input
+              type="text "
+              v-model="newMessage"
+              placeholder="Write your message"
+              @keydown.enter="handleNewMessage"
+            />
             <svg
               width="30"
               height="30"
@@ -288,6 +330,7 @@ onMounted(() => {
               </g>
             </svg>
             <svg
+              @click="handleNewMessage"
               width="32"
               height="32"
               viewBox="0 0 32 32"
@@ -500,6 +543,7 @@ section {
     }
     .content {
       width: 75%;
+      height: 60vh;
       .chat-box {
         width: 100%;
         height: 100%;
@@ -593,14 +637,18 @@ section {
           .mine-msg {
             display: flex;
             margin-left: 16px * 3;
+            align-items: flex-start;
             flex-direction: column;
+            margin-bottom: 16px;
 
             .msg-stack {
               display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+
               .msg-content {
                 position: relative;
                 margin-bottom: 16px * 0.5;
-
                 p {
                   background-color: #0275b1;
                   color: white;
@@ -631,6 +679,7 @@ section {
             border: none;
             font-size: 16px * 1.5;
             margin-left: 16px * 2;
+            height: 100%;
             &::placeholder {
               color: rgba(24, 24, 24, 0.2);
             }

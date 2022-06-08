@@ -256,7 +256,9 @@ onMounted(() => {
       </div>
     </div>
     <div class="profile">
-      <img src="/images/picture.jpg" alt="" />
+      <router-link to="/">
+        <img src="/images/picture.jpg" alt="" />
+      </router-link>
       <div class="info">
         <div class="user">
           <p>Miya</p>
@@ -750,6 +752,7 @@ onMounted(() => {
       left: 0;
       background-color: white;
       z-index: 100;
+
       .bar-header {
         margin-top: 16px * 1.5;
         display: flex;
@@ -783,6 +786,13 @@ onMounted(() => {
       }
       .search-hint {
         margin: 0 16px * 1.5;
+        .card {
+          cursor: pointer;
+          transition: 0.2s linear;
+          &:hover {
+            border-color: #0275b1;
+          }
+        }
         .hint-title {
           margin: 16px 0rem;
           font-size: 1.25rem;

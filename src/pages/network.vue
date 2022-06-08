@@ -602,6 +602,7 @@ section {
           justify-content: flex-end;
           align-items: center;
           padding: 16px;
+          cursor: pointer;
 
           .user-info {
             display: flex;

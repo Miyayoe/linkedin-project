@@ -620,6 +620,12 @@ section {
           border-radius: 5px;
           padding: 16px;
           margin-top: 16px;
+          cursor: pointer;
+          transition: 0.2s linear;
+
+          &:hover {
+            border-color: #0275b1;
+          }
           img {
             width: 2.75vw;
             height: 2.75vw;
@@ -655,6 +661,7 @@ section {
       .article-card {
         margin-top: 16px;
         display: flex;
+        cursor: pointer;
         .left {
           display: flex;
           align-items: center;

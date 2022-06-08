@@ -254,7 +254,7 @@ section {
         padding: 16px * 2;
         align-items: center;
         margin-bottom: 16px;
-
+        cursor: pointer;
         .images {
           display: flex;
           width: 16px * 5;

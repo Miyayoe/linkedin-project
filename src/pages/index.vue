@@ -754,6 +754,7 @@ section {
           justify-content: space-between;
           .card {
             width: 16vw;
+            cursor: pointer;
             img {
               width: 100%;
               object-fit: cover;
@@ -786,6 +787,11 @@ section {
             border: 1px solid #f4f4f4;
             padding: 16px;
             border-radius: 5px;
+            transition: 0.2s linear;
+            cursor: pointer;
+            &:hover {
+              border-color: #0077b5;
+            }
             p {
               font-weight: bold;
               font-size: 1.25rem;
@@ -991,6 +997,7 @@ section {
           .card {
             display: flex;
             margin: 16px * 0.5 0;
+            cursor: pointer;
             .left {
               img {
                 width: 150px;

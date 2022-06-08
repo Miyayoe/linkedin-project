@@ -582,6 +582,10 @@ section {
           margin-top: 16px;
           border: 1px solid #f4f4f4;
           border-radius: 5px;
+          cursor: pointer;
+          &:hover {
+            border-color: #0275b1;
+          }
           img {
             width: 16px * 4;
             height: 16px * 4;
@@ -601,6 +605,7 @@ section {
       .article-card {
         margin-top: 16px;
         display: flex;
+        cursor: pointer;
         .left {
           display: flex;
           align-items: center;
