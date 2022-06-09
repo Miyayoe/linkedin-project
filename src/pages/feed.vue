@@ -653,6 +653,10 @@ section {
                 border-radius: 5px;
                 background-color: #e9f0f8;
                 color: #181818;
+                transition: 0.2s linear;
+                &:hover {
+                  background-color: #bddcff;
+                }
               }
             }
           }
@@ -661,6 +665,10 @@ section {
       .article-card {
         margin-top: 16px;
         display: flex;
+        transition: 0.2s linear;
+        &:hover {
+          color: #0275b1;
+        }
         cursor: pointer;
         .left {
           display: flex;

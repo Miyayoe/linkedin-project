@@ -602,8 +602,13 @@ section {
           justify-content: flex-end;
           align-items: center;
           padding: 16px;
+          transition: 0.2s linear;
+          &:hover {
+            p {
+              color: #0275b1;
+            }
+          }
           cursor: pointer;
-
           .user-info {
             display: flex;
             margin-right: auto;

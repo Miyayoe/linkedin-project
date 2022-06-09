@@ -254,7 +254,12 @@ section {
         padding: 16px * 2;
         align-items: center;
         margin-bottom: 16px;
-        cursor: pointer;
+        transition: 0.2s linear;
+        &:hover {
+          p {
+            color: #0275b1;
+          }
+        }
         .images {
           display: flex;
           width: 16px * 5;

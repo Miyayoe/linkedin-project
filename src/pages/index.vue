@@ -754,6 +754,10 @@ section {
           justify-content: space-between;
           .card {
             width: 16vw;
+            transition: 0.2s linear;
+            &:hover {
+              color: #0275b1;
+            }
             cursor: pointer;
             img {
               width: 100%;
@@ -964,6 +968,11 @@ section {
             display: flex;
             width: 100%;
             margin: 16px 0;
+            transition: 0.2s linear;
+            &:hover {
+              color: #0275b1;
+            }
+            cursor: pointer;
             .left {
               img {
                 width: 50px;
@@ -979,7 +988,6 @@ section {
               margin-left: 16px * 0.5;
               p {
                 font-weight: bold;
-
                 margin-bottom: 16px * 0.25;
               }
               span {
@@ -997,6 +1005,10 @@ section {
           .card {
             display: flex;
             margin: 16px * 0.5 0;
+            transition: 0.2s linear;
+            &:hover {
+              color: #0275b1;
+            }
             cursor: pointer;
             .left {
               img {

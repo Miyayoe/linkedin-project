@@ -583,6 +583,7 @@ section {
           border: 1px solid #f4f4f4;
           border-radius: 5px;
           cursor: pointer;
+          transition: 0.2s linear;
           &:hover {
             border-color: #0275b1;
           }
@@ -605,6 +606,12 @@ section {
       .article-card {
         margin-top: 16px;
         display: flex;
+        transition: 0.2s linear;
+        &:hover {
+          p {
+            color: #0275b1;
+          }
+        }
         cursor: pointer;
         .left {
           display: flex;
