@@ -279,7 +279,7 @@ section {
           margin-left: 16px;
           p {
             font-size: 1.25rem;
-            ::v-deep span {
+            :deep(span) {
               font-weight: bold;
             }
           }

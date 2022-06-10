@@ -748,7 +748,7 @@ section {
             font-size: 1.75rem;
           }
         }
-        ::v-deep .home-content {
+        :deep(.home-content) {
           display: flex;
           width: 100%;
           justify-content: space-between;
@@ -782,7 +782,7 @@ section {
             font-weight: bold;
           }
         }
-        ::v-deep .home-content {
+        :deep(.home-content) {
           width: 100%;
           display: flex;
           justify-content: space-between;
@@ -847,7 +847,7 @@ section {
             font-weight: bold;
           }
         }
-        ::v-deep .home-content {
+        :deep(.home-content) {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -911,7 +911,7 @@ section {
             font-weight: bold;
           }
         }
-        ::v-deep .home-content {
+        :deep(.home-content) {
           display: flex;
           flex-direction: column;
           justify-content: space-between;

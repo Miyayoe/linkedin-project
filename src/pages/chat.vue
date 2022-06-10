@@ -106,7 +106,7 @@ onMounted(() => {
           msg: 'When you got it?',
         },
         active: false,
-        unread: true,
+        unread: false,
         online: true,
         heightLight: false,
       },
@@ -123,7 +123,7 @@ onMounted(() => {
           msg: 'Can you guys help me with it?',
         },
         active: false,
-        unread: true,
+        unread: false,
         heightLight: false,
       },
     ];
@@ -497,7 +497,7 @@ section {
             align-items: center;
             margin-top: 16px * 0.5;
             font-size: 0.5rem;
-            color: rgba(0, 0, 0, 0);
+            color: rgba(0, 0, 0, 0.5);
 
             &.unread {
               background: linear-gradient(
